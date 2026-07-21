@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Property & Feng Shui Analysis Dashboard</title>
+    <meta name="description" content="A comprehensive analysis and comparison system for select real estate properties, focusing on layouts, transit, benefits, and Feng Shui aspects.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-title">
+                <h1>Property Feng Shui & Financial Dashboard</h1>
+                <p>Curated comparison, layout breakdown, transit metrics, and financial evaluation</p>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-val">4</div>
+                    <div class="stat-lbl">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">Freehold / LH</div>
+                    <div class="stat-lbl">Tenures</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-val">LRT & MRT</div>
+                    <div class="stat-lbl">Connected</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Project Comparison Overview Table -->
+        <section class="panel">
+            <div class="panel-header">
+                <div class="panel-title"><span>📊</span> Property Comparison Overview</div>
+                <button id="toggle-comparison" class="ghost-btn" type="button">Hide</button>
+            </div>
+            <div id="comparison-body" class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Tenure</th>
+                            <th>Nearest Transit Hub</th>
+                            <th>Shuttle Van</th>
+                            <th>Price Range</th>
+                            <th>Key Disadvantage / Feng Shui</th>
+                            <th>Key Benefit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="icon-text-cell"><strong>Mulberi Residences</strong></td>
+                            <td>Freehold</td>
+                            <td>MRT Kepong Baru (~2.5km)</td>
+                            <td>None</td>
+                            <td>RM 479k - RM 598k</td>
+                            <td>No major disadvantages reported</td>
+                            <td><span style="color: var(--success-color)">✓</span> 0% Downpayment & RM 60k Renovation Loan</td>
+                        </tr>
+                        <tr>
+                            <td class="icon-text-cell"><strong>LSH Cheras (LSH Segar)</strong></td>
+                            <td>Leasehold</td>
+                            <td>Taman Mutiara MRT (~500m)</td>
+                            <td>None</td>
+                            <td>RM 567k (Net)</td>
+                            <td>Leasehold title, customer pays MOT & Stamping</td>
+                            <td><span style="color: var(--success-color)">✓</span> 10% Rebate & full kitchen/aircond freebies</td>
+                        </tr>
+                        <tr>
+                            <td class="icon-text-cell"><strong>JRK Convena</strong></td>
+                            <td>Freehold</td>
+                            <td>Muhibbah LRT (~250m)</td>
+                            <td>TBC</td>
+                            <td>RM 560k (Net)</td>
+                            <td><span style="color: var(--danger-color)">⚠ Balcony faces graveyard, slow lift (only 3 for whole building)</span></td>
+                            <td><span style="color: var(--success-color)">✓</span> RM 25,000 Cash Back, Freehold, Low Density</td>
+                        </tr>
+                        <tr>
+                            <td class="icon-text-cell"><strong>PSV 1 Residences</strong></td>
+                            <td>Leasehold</td>
+                            <td>Bandar Tasik Selatan (~2-4km)</td>
+                            <td>Van to UCSI, LRT BTS, MRT Sungai Besi</td>
+                            <td>RM 631k (Net)</td>
+                            <td><span style="color: var(--danger-color)">⚠ Balcony faces mosque (Masjid)</span></td>
+                            <td><span style="color: var(--success-color)">✓</span> High rebates & fully furnished incentives</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Project Analyzer Tabs -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" data-property="mulberi">🏢 Mulberi Residences</button>
+            <button class="tab-btn" data-property="lsh_segar">🏢 LSH Cheras (LSH Segar)</button>
+            <button class="tab-btn" data-property="jrk_convena">🏢 JRK Convena</button>
+            <button class="tab-btn" data-property="psv1">🏢 PSV 1 Residences</button>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+
+            <!-- Row 1: Project facts | Unit selection | Money -->
+            <div class="dash-row row-3">
+
+                <!-- Project Specs -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>ℹ</span> <span id="proj-title">Project Name</span></div>
+                        <span id="meta-transit" class="transit-badge">Distance</span>
+                    </div>
+                    <div class="project-meta-grid">
+                        <div class="meta-card">
+                            <span class="meta-label">Developer</span>
+                            <span id="meta-developer" class="meta-value">Developer Name</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Tenure</span>
+                            <span id="meta-tenure" class="meta-value">Tenure Type</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Density</span>
+                            <span id="meta-density" class="meta-value">Density Description</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Maintenance Fee</span>
+                            <span id="meta-maintenance" class="meta-value accent">Maintenance Details</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Shuttle Van</span>
+                            <span id="meta-shuttle" class="meta-value accent">Shuttle Van Details</span>
+                        </div>
+                    </div>
+                    <div class="transit-note">
+                        <strong>Transit Connectivity:</strong>
+                        <p id="transit-desc">Transit descriptions will populate here.</p>
+                    </div>
+                </div>
+
+                <!-- Unit & Layout Selector -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>📐</span> Choose Unit / Layout</div>
+                    </div>
+                    <div class="unit-selector-container">
+                        <div id="unit-cards-container" class="unit-cards">
+                            <!-- Cards populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financing Summary -->
+                <div class="panel" style="border-color: var(--primary-color);">
+                    <div class="panel-header">
+                        <div class="panel-title" style="color: var(--primary-color)"><span>💰</span> Financing Summary</div>
+                    </div>
+                    <div class="calc-inputs">
+                        <p class="calc-note">
+                            Fixed parameters:
+                            <strong>90% Margin</strong> | <strong>3.9% Interest</strong> | <strong>35 Years</strong>
+                        </p>
+                    </div>
+                    <div class="calc-results">
+                        <div class="result-row">
+                            <span class="result-label">Purchase Price</span>
+                            <span id="res-purchase-price" class="result-val">RM 0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Total Loan Amount (90%)</span>
+                            <span id="res-loan-amount" class="result-val">RM 0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label"><strong>Est. Monthly Installment</strong></span>
+                            <span id="res-installment" class="result-val installment">RM 0</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 2: The two plans, side by side -->
+            <div class="dash-row row-2">
+
+                <!-- Unit Layout -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>📐</span> Unit Layout</div>
+                    </div>
+                    <div class="plan-frame">
+                        <img id="layout-preview-img" src="" alt="Unit Layout" class="plan-img">
+                        <span id="layout-fallback" class="plan-fallback"></span>
+                    </div>
+                    <p id="layout-caption" class="plan-caption"></p>
+                    <p class="plan-hint">💡 Click to enlarge. Switch unit above to load its layout.</p>
+                </div>
+
+                <!-- Building Floor Plan -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>🏢</span> Building Floor Plan</div>
+                    </div>
+                    <div class="plan-frame">
+                        <img id="floorplate-img" src="" alt="Building Floor Plan" class="plan-img">
+                        <span id="floorplate-fallback" class="plan-fallback"></span>
+                    </div>
+                    <p id="floorplate-caption" class="plan-caption"></p>
+                    <p class="plan-hint">💡 Click to enlarge. Shows unit position and orientation on the floor.</p>
+                </div>
+
+            </div>
+
+            <!-- Row 3: Risks | Benefits -->
+            <div class="dash-row row-2">
+
+                <!-- Disadvantages & Feng Shui Warnings -->
+                <div class="panel" style="border-color: rgba(239, 68, 68, 0.2);">
+                    <div class="panel-header" style="border-bottom-color: rgba(239, 68, 68, 0.1);">
+                        <div class="panel-title" style="color: var(--danger-color)"><span>⚠</span> Disadvantages & Feng Shui Notes</div>
+                    </div>
+                    <div class="disadvantage-banner">
+                        <div class="disadvantage-header">
+                            <span>⚠</span> Location / Layout Risk
+                        </div>
+                        <p id="disadvantage-text" style="font-size: 0.95rem; color: var(--text-primary);">
+                            Disadvantage notes populated here.
+                        </p>
+                        <button id="disadvantage-media-btn" class="disadvantage-media-btn">
+                            <span>👁</span> View Disadvantage Site Photo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Benefits & Advantages -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><span>🎁</span> Package Benefits & Incentives</div>
+                    </div>
+                    <ul id="benefits-list" class="benefit-list">
+                        <!-- Populated dynamically -->
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Media Lightbox Modal -->
+    <div id="media-modal" class="modal" onclick="closeLightbox()">
+        <div class="modal-content-wrapper" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeLightbox()">×</button>
+            <img id="modal-img" src="" alt="Site photo" class="modal-img">
+            <div id="modal-caption" class="modal-caption">Caption text goes here</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
