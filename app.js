@@ -215,11 +215,11 @@ const propertyData = {
                 layoutCaption: "PSV 1 — Type C / C(M) (1,317 sf), 3 Beds + Ensuite, 2 Baths",
                 size: 1317,
                 rooms: "4 Beds, 3 Baths, 2 Carparks (G-9, 10)",
-                spaPrice: 742560,
+                spaPrice: 745751,
                 netPrice: 631176,
                 defaultLoan: 668304, // 90% of SPA
                 defaultInstallment: 2261, // Net after RM 618 rebate (Original 2879)
-                facingDeg: 5,
+                facingDeg: 135,
                 loanStampDutyPaidBy: "Developer",
                 spaLegalPaidBy: "Developer",
                 loanLegalPaidBy: "Developer",
@@ -420,7 +420,7 @@ function calculateFinancials() {
     const tenureYears = 35;
 
     // Loan calculations
-    const totalLoanAmount = unit.netPrice * (marginPercent / 100);
+    const totalLoanAmount = unit.spaPrice * (marginPercent / 100);
     const monthlyInstallment = calculatePMT(totalLoanAmount, annualRate, tenureYears);
 
     // Update displays
