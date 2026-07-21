@@ -192,9 +192,9 @@ const propertyData = {
         tenure: "Leasehold",
         density: "High Density",
         maintenance: "RM 0.30/sf (Estimated)",
-        transit: "Bandar Tasik Selatan / TBS Integrated Hub (~2-4km drive)",
-        transitColor: "blue",
-        transitDistance: "~2-4km (KTM/LRT/ERL/Bus Interchange)",
+        transit: "Bandar Tasik Selatan / TBS Integrated Hub (~10-min walk)",
+        transitColor: "green",
+        transitDistance: "~10-min walk to LRT BTS / TBS Hub",
         benefits: [
             "High rebates (7% Developer Rebate + 3% Conditional + 5% VP Promotion Rebate)",
             "VP Promotion Rebate offsets RM 618/month of installment",
